@@ -1,0 +1,9 @@
+{
+  "name": "LMSC",
+  "version": "1.0.0",
+  "description": "Beckend for LMSC App",
+  "main": "index.js",
+  "repository": "https://github.com/nandajl/LMSC-BE",
+  "author": "nandajelubis@gmail.com",
+  "license": "MIT"
+}
