@@ -4,8 +4,8 @@
   "description": "Beckend for LMSC App",
   "main": "index.js",
   "scripts": {
-    "start": "node -r dotenv/config bin/www",
-    "develop": "nodemon bin/www",
+    "start": "node bin/www",
+    "dev": "nodemon bin/www",
     "create": "sequelize db:create",
     "drop": "sequelize db:drop",
     "migrate": "sequelize db:migrate",
