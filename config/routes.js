@@ -10,6 +10,12 @@ apiRouter.get('/', controller.api.main.handleGetRoot);
 apiRouter.post('/api/v1/register', controller.api.v1.authController.handleRegister);
 apiRouter.post('/api/v1/login', controller.api.v1.authController.handleLogin);
 
+//user routes
+apiRouter.put('/api/v1/users/:id', controller.api.v1.userController.handleUpdateUser);
+apiRouter.get('/api/v1/users/:id', controller.api.v1.userController.handleGetUser);
+apiRouter.get('/api/v1/users', controller.api.v1.userController.handleListUser);
+
+
 apiRouter.use(controller.api.main.onLost);
 apiRouter.use(controller.api.main.onError);
 
