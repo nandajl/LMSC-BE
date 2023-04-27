@@ -46,5 +46,49 @@ module.exports = {
                 message: error.message
             })
         }
-    }    
+    },
+
+    async authorize(req, res, next){
+        try {
+            const bearerToken = req.headers.authorization;
+            if (!bearerToken) {
+                res.status(403).json({
+                    message: "Wrong Bearer Token"
+                });
+                return;
+            }
+
+            const token = bearerToken.split('Bearer ')[1];
+
+            const user = await authServices.authorize(token)
+
+            if (user.code == "505") {
+                return res.status(403).json({
+                    message: "Unauthorized"
+                });
+            }
+            else if (!user) {
+                return res.status(403).json({
+                    message: "Unauthorized"
+                });
+            }
+
+            req.user = user
+            next();
+
+        } catch (error) {
+            res.status(400).json({
+                message: "NEED AUTHORIZATION",
+            });
+        }
+    },
+
+    whoAmI(req, res){
+        const user = req.user;
+        res.status(201).json({
+            status:"OK",
+            data: user
+        })
+        return
+    }
 }
