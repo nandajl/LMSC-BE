@@ -16,6 +16,11 @@ apiRouter.put('/api/v1/users/:id', controller.api.v1.userController.handleUpdate
 apiRouter.get('/api/v1/users/:id', controller.api.v1.userController.handleGetUser);
 apiRouter.get('/api/v1/users', controller.api.v1.userController.handleListUser);
 
+//company routes
+apiRouter.post('/api/v1/company', controller.api.v1.companyController.handleCreateCompany);
+apiRouter.put('/api/v1/company:id', controller.api.v1.companyController.handleUpdateCompany);
+apiRouter.get('/api/v1/company:id', controller.api.v1.companyController.handleGetCompany);
+
 
 apiRouter.use(controller.api.main.onLost);
 apiRouter.use(controller.api.main.onError);
