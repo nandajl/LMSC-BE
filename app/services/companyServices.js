@@ -11,5 +11,9 @@ module.exports = {
 
     getCompany(id){
         return companyRepository.getCompany(id);
+    },
+
+    findCompany(condition){
+        return companyRepository.findCompany({company_code: condition})
     }
-}
+}   

@@ -14,8 +14,9 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Grup.init({
+    name: DataTypes.STRING,
     code: DataTypes.STRING,
-    company_code: DataTypes.STRING
+    company_id: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Grup',

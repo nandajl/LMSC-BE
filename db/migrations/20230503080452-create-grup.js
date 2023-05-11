@@ -9,10 +9,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      name: {
+        type: Sequelize.STRING
+      },
       code: {
         type: Sequelize.STRING
       },
-      company_code: {
+      company_id: {
         type: Sequelize.STRING
       },
       createdAt: {

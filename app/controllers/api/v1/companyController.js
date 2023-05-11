@@ -1,9 +1,13 @@
 const companyServices = require("../../../services/companyServices");
+const crypto = require('crypto');
 
 module.exports = {
     async handleCreateCompany(req, res){
         try {
             const body = req.body;
+            const code = crypto.randomBytes(3).toString('hex');
+            body.company_code = code
+            console.log(body);
             const company = await companyServices.create(body);
             res.status(201).json({
                 message:"OK",
@@ -48,5 +52,23 @@ module.exports = {
                 message: error
             })
         }
-    }
+    },
+    
+    async handleFindCompany(req, res){
+        try {
+            const body = req.body;
+            const company_code = body.company_code;
+            const company = await companyServices.findCompany(company_code);
+            res.status(201).json({
+                message: "OK",
+                data: company
+            });
+        } catch (error) {
+            res.status(401).json({
+                message: error
+            })
+        }
+    },
+
+
 }

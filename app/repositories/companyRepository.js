@@ -15,6 +15,12 @@ module.exports = {
 
     getCompany(id){
         return Company.findByPK(id)
+    },
+
+    findCompany(condition){
+        return Company.findOne({
+            where: condition
+        })
     }
     
 }
