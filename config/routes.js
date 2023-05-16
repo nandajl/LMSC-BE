@@ -29,6 +29,13 @@ apiRouter.put('/api/v1/grup/:id', controller.api.v1.grupController.handleUpdateG
 apiRouter.get('/api/v1/grup/:id', controller.api.v1.grupController.handleGetGrup);
 apiRouter.delete('/api/v1/grup/:id', controller.api.v1.grupController.handleDeleteGrup);
 
+//Lessons routes
+apiRouter.get('/api/v1/lessons', controller.api.v1.lessonsController.handleGetAllLessons);
+apiRouter.post('/api/v1/lessons', controller.api.v1.lessonsController.handleCreateLessons);
+apiRouter.put('/api/v1/lessons/:id', controller.api.v1.lessonsController.handleUpdateLessons);
+apiRouter.get('/api/v1/lessons/:id', controller.api.v1.lessonsController.handleGetLessons);
+apiRouter.delete('/api/v1/lessons/:id', controller.api.v1.lessonsController.handleDeleteLessons);
+
 
 apiRouter.use(controller.api.main.onLost);
 apiRouter.use(controller.api.main.onError);
