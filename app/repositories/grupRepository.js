@@ -27,6 +27,12 @@ module.exports = {
                 id
             }
         })
+    },
+    
+    findGrup(condition){
+        return Grup.findAll({
+            where: condition
+        })
     }
 
 

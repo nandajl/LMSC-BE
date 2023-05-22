@@ -1,5 +1,7 @@
+const companyServices = require("../../../services/companyServices");
 const grupServices = require("../../../services/grupServices");
 const crypto = require('crypto');
+
 
 module.exports = {
     async handleCreateGrup(req, res){
@@ -76,6 +78,29 @@ module.exports = {
             })
         }
     },
+
+    async handleFindGrup(req, res){
+        try {
+            const company_code = req.body.companyCode;
+            const company = await companyServices.findCompany(company_code);
+            if (!company) {
+                res.status(400).json({
+                    message: error
+                });
+            }
+            const companyId = company.id
+            const company_id = companyId.toString()
+            const grup = await grupServices.findGrup(company_id)
+            res.status(201).json({
+                status: "OK",
+                data: grup
+            })
+        } catch (error) {
+            res.status(400).json({
+                message: error
+            });
+        }
+    }
  
     
 }

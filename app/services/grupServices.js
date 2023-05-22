@@ -19,5 +19,9 @@ module.exports = {
 
     destroy(id){
         return grupRepository.destroy(id);
+    },
+
+    findGrup(company_id){
+        return grupRepository.findGrup({company_id: company_id})
     }
 }
