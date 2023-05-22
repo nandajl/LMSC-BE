@@ -4,6 +4,7 @@ const companyController = require('./companyController');
 const grupController = require('./grupController');
 const lessonsController = require('./lessonsController');
 const testController = require('./testController');
+const feedbackController = require('./feedbackController');
 
 module.exports = {
     userController,
@@ -11,5 +12,6 @@ module.exports = {
     companyController,
     grupController,
     lessonsController,
-    testController
+    testController,
+    feedbackController
 }

@@ -45,6 +45,13 @@ apiRouter.put('/api/v1/test/:id', controller.api.v1.testController.handleUpdateT
 apiRouter.get('/api/v1/test/:id', controller.api.v1.testController.handleGetTest);
 apiRouter.delete('/api/v1/test/:id', controller.api.v1.testController.handleDeleteTest);
 
+//feedbcak Routes
+apiRouter.get('/api/v1/feedback', controller.api.v1.feedbackController.handleGetAllFeedback);
+apiRouter.post('/api/v1/feedback', controller.api.v1.feedbackController.handleCreateFeedback);
+apiRouter.put('/api/v1/feedback/:id', controller.api.v1.feedbackController.handleUpdateFeedback);
+apiRouter.get('/api/v1/feedback/:id', controller.api.v1.feedbackController.handleGetFeedback);
+apiRouter.delete('/api/v1/feedback/:id', controller.api.v1.feedbackController.handleDeleteFeedback);
+
 
 apiRouter.use(controller.api.main.onLost);
 apiRouter.use(controller.api.main.onError);
