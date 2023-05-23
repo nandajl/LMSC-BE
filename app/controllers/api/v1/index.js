@@ -5,6 +5,7 @@ const grupController = require('./grupController');
 const lessonsController = require('./lessonsController');
 const testController = require('./testController');
 const feedbackController = require('./feedbackController');
+const questionController = require('./questionController');
 
 module.exports = {
     userController,
@@ -13,5 +14,6 @@ module.exports = {
     grupController,
     lessonsController,
     testController,
-    feedbackController
+    feedbackController,
+    questionController
 }

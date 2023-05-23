@@ -52,6 +52,14 @@ apiRouter.put('/api/v1/feedback/:id', controller.api.v1.feedbackController.handl
 apiRouter.get('/api/v1/feedback/:id', controller.api.v1.feedbackController.handleGetFeedback);
 apiRouter.delete('/api/v1/feedback/:id', controller.api.v1.feedbackController.handleDeleteFeedback);
 
+//question Routes
+apiRouter.get('/api/v1/question', controller.api.v1.questionController.handleGetAllQuestion);
+apiRouter.post('/api/v1/question', controller.api.v1.questionController.handleCreateQuestion);
+apiRouter.put('/api/v1/question/:id', controller.api.v1.questionController.handleUpdateQuestion);
+apiRouter.get('/api/v1/question/:id', controller.api.v1.questionController.handleGetQuestion);
+apiRouter.delete('/api/v1/question/:id', controller.api.v1.questionController.handleDeleteQuestion);
+apiRouter.post('/api/v1/question/test/:id', controller.api.v1.questionController.handleFindQuestion);
+
 
 apiRouter.use(controller.api.main.onLost);
 apiRouter.use(controller.api.main.onError);
