@@ -16,5 +16,9 @@ module.exports = {
 
     destroy(id){
         return userRepositories.destroy(id);
+    },
+
+    findAllUser(condition){
+        return userRepositories.findAllUser({group_id: condition});
     }
 }

@@ -19,5 +19,9 @@ module.exports = {
 
     destroy(id){
         return lessonsRepository.destroy(id)
+    },
+
+    findLesson(condition){
+        return lessonsRepository.findLesson({group_id: condition});
     }
 }

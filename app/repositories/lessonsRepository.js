@@ -23,5 +23,11 @@ module.exports = {
 
     destroy(id){
         return Lessons.destroy({where:{id}})
+    },
+
+    findLesson(condition){
+        return Lessons.findAll({
+            where: condition
+        })
     }
 }

@@ -73,5 +73,20 @@ module.exports = {
                 message: error
             })
         }
+    },
+
+    async handleFindLesson(req, res){
+        try {
+            const group_id = req.body.group_id
+            const lessons = await lessonsServices.findLesson(group_id)
+            res.status(201).json({
+                message: "OK",
+                data: lessons
+            })
+        } catch (error) {
+            res.status(400).json({
+                message: error
+            })
+        }
     }
 }

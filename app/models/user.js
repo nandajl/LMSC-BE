@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       User.hasMany(models.Feedback, {
         foreignKey: 'user_id'
+      }),
+      User.belongsTo(models.Grup, {
+        foreignKey: 'group_id'
       })
     }
   }

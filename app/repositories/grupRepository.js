@@ -1,4 +1,4 @@
-const { Grup } = require('../models');
+const { Grup, User } = require('../models');
 
 module.exports = {
     create(body){

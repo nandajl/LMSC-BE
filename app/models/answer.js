@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   Answer.init({
     answer_text: DataTypes.STRING,
-    question_id: DataTypes.STRING
+    question_id: DataTypes.STRING,
+    is_correct: DataTypes.BOOLEAN
   }, {
     sequelize,
     modelName: 'Answer',

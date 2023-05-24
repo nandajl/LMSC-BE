@@ -27,6 +27,12 @@ module.exports = {
         })
     },
 
+    findAllUser(condition){
+        return User.findAll({
+            where: condition
+        })
+    },
+
     destroy(id){
         return User.destroy({
             where: {

@@ -23,5 +23,9 @@ module.exports = {
 
     findGrup(company_id){
         return grupRepository.findGrup({company_id: company_id})
+    },
+
+    findGrupWithCode(grup_code){
+        return grupRepository.findGrup({code: grup_code})
     }
 }

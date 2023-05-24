@@ -56,15 +56,20 @@ module.exports = {
     
     async handleFindCompany(req, res){
         try {
-            const body = req.body;
-            const company_code = body.company_code;
+            const company_code = req.body.company_code;
+            console.log(company_code);
             const company = await companyServices.findCompany(company_code);
+            if (!company) {
+                return res.status(404).json({
+                    message: "Company Not Found"
+                })
+            }
             res.status(201).json({
                 message: "OK",
                 data: company
             });
         } catch (error) {
-            res.status(401).json({
+            res.status(403).json({
                 message: error
             })
         }

@@ -19,6 +19,9 @@ module.exports = {
           key: 'id'
         }
       },
+      is_correct: {
+        type: Sequelize.BOOLEAN
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
