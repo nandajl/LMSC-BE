@@ -83,8 +83,8 @@ module.exports = {
         try {
             const company_code = req.body.companyCode;
             const code = req.body.grupCode;
-            console.log(code);
             if (company_code) {
+                console.log("company_code", company_code);
                 const company = await companyServices.findCompany(company_code);
                 if (!company) {
                     res.status(400).json({
@@ -94,14 +94,19 @@ module.exports = {
                 const companyId = company.id
                 const company_id = companyId.toString()
                 const grup = await grupServices.findGrup(company_id)
+                if (grup == "") {
+                    return res.status(404).json({
+                        message: "Grup Not Found"
+                    });
+                }
                 res.status(201).json({
                     status: "OK",
                     data: grup
                 })
             } else if (code) {
                 const grup = await grupServices.findGrupWithCode(code);
-                if (!grup) {
-                    res.status(400).json({
+                if (grup == "") {
+                    return res.status(404).json({
                         message: "Grup not Found"
                     });
                 }

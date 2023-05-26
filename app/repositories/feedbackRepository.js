@@ -1,4 +1,4 @@
-const { Feedback, User } = require('../models');
+const { Feedback, User, FeedbackCat } = require('../models');
 
 
 module.exports = {
@@ -13,7 +13,8 @@ module.exports = {
     getAll(){
         return Feedback.findAll({
             include: [
-                {model: User}
+                {model: User},
+                {model: FeedbackCat}
             ]
         });
     },
@@ -24,6 +25,16 @@ module.exports = {
 
     delete(id){
         return Feedback.destroy({where: {id}});
+    },
+
+    findFeedback(condition){
+        return Feedback.findAll({
+            include: [
+                {model: User},
+                {model: FeedbackCat}
+            ],
+            where: condition
+        });
     }
 
 }

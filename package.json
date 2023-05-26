@@ -9,7 +9,7 @@
     "create": "sequelize db:create",
     "drop": "sequelize db:drop",
     "migrate": "sequelize db:migrate",
-    "rollback": "sequelize db:migrate:undo",
+    "rollback": "sequelize db:migrate:undo:all && sequelize db:migrate",
     "seed": "sequelize db:seed:all",
     "deploy": "yarn drop && yarn cretae && yarn migrate",
     "test": "jest"

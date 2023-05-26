@@ -14,7 +14,7 @@ module.exports = {
     },
 
     getCompany(id){
-        return Company.findByPK(id)
+        return Company.findByPk(id)
     },
 
     findCompany(condition){

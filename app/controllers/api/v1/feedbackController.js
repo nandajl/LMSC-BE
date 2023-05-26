@@ -1,3 +1,4 @@
+const feedbackCatServices = require("../../../services/feedbackCatServices");
 const feedbackServices = require("../../../services/feedbackServices");
 
 module.exports = {
@@ -73,6 +74,31 @@ module.exports = {
             res.status(400).json({
                 message: error
             })
+        }
+    },
+
+    async handleFindFeedback(req, res){
+        try {
+            const condition = req.body.user_id;
+            console.log("condition", condition);
+            const feedback = await feedbackServices.findFeedback(condition)
+            res.status(201).json({
+                message: "OK",
+                data: feedback
+            })
+        } catch (error) {
+            res.status(400).json({
+                message: error
+            })
+        }
+    },
+
+    async handleGetFeedbackCat(req, res){
+        try {
+            const feedback = await feedbackCatServices.getAll()
+            res.status(201).json(feedback)
+        } catch (error) {
+            res.status(400).json(error)
         }
     }
 }

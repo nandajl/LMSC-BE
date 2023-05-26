@@ -19,8 +19,8 @@ apiRouter.post('/api/v1/users/find', controller.api.v1.userController.handleFind
 
 //company routes
 apiRouter.post('/api/v1/company', controller.api.v1.companyController.handleCreateCompany);
-apiRouter.put('/api/v1/company:id', controller.api.v1.companyController.handleUpdateCompany);
-apiRouter.get('/api/v1/company:id', controller.api.v1.companyController.handleGetCompany);
+apiRouter.put('/api/v1/company/:id', controller.api.v1.companyController.handleUpdateCompany);
+apiRouter.get('/api/v1/company/:id', controller.api.v1.companyController.handleGetCompany);
 apiRouter.post('/api/v1/company/find', controller.api.v1.companyController.handleFindCompany);
 
 //Grup routes
@@ -35,6 +35,7 @@ apiRouter.delete('/api/v1/grup/:id', controller.api.v1.grupController.handleDele
 //Lessons routes
 apiRouter.get('/api/v1/lessons', controller.api.v1.lessonsController.handleGetAllLessons);
 apiRouter.post('/api/v1/lessons', controller.api.v1.lessonsController.handleCreateLessons);
+apiRouter.post('/api/v1/lessons/find', controller.api.v1.lessonsController.handleFindLesson);
 apiRouter.put('/api/v1/lessons/:id', controller.api.v1.lessonsController.handleUpdateLessons);
 apiRouter.get('/api/v1/lessons/:id', controller.api.v1.lessonsController.handleGetLessons);
 apiRouter.delete('/api/v1/lessons/:id', controller.api.v1.lessonsController.handleDeleteLessons);
@@ -42,12 +43,15 @@ apiRouter.delete('/api/v1/lessons/:id', controller.api.v1.lessonsController.hand
 //test Routes
 apiRouter.get('/api/v1/test', controller.api.v1.testController.handleGetAllTest);
 apiRouter.post('/api/v1/test', controller.api.v1.testController.handleCreateTest);
+apiRouter.post('/api/v1/test/find', controller.api.v1.testController.handleFindTest);
 apiRouter.put('/api/v1/test/:id', controller.api.v1.testController.handleUpdateTest);
 apiRouter.get('/api/v1/test/:id', controller.api.v1.testController.handleGetTest);
 apiRouter.delete('/api/v1/test/:id', controller.api.v1.testController.handleDeleteTest);
 
 //feedbcak Routes
 apiRouter.get('/api/v1/feedback', controller.api.v1.feedbackController.handleGetAllFeedback);
+apiRouter.get('/api/v1/feedback/category', controller.api.v1.feedbackController.handleGetFeedbackCat);
+apiRouter.post('/api/v1/feedback/find', controller.api.v1.feedbackController.handleFindFeedback);
 apiRouter.post('/api/v1/feedback', controller.api.v1.feedbackController.handleCreateFeedback);
 apiRouter.put('/api/v1/feedback/:id', controller.api.v1.feedbackController.handleUpdateFeedback);
 apiRouter.get('/api/v1/feedback/:id', controller.api.v1.feedbackController.handleGetFeedback);

@@ -13,13 +13,17 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Feedback.belongsTo(models.User, {
         foreignKey: 'user_id',
+      }),
+      Feedback.belongsTo(models.FeedbackCat, {
+        foreignKey: 'feedbackCat_id',
       })
     }
   }
   Feedback.init({
     user_id: DataTypes.INTEGER,
-    subject: DataTypes.STRING,
-    message: DataTypes.STRING
+    feedbackCat_id: DataTypes.INTEGER,
+    nilai: DataTypes.INTEGER,
+    message: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Feedback',

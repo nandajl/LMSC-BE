@@ -19,5 +19,9 @@ module.exports = {
 
     destroy(id){
         return testRepository.destroy(id)
+    },
+
+    findTest(condition){
+        return testRepository.findTest({group_id: condition})
     }
 }

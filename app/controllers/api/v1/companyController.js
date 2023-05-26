@@ -41,7 +41,6 @@ module.exports = {
     async handleGetCompany(req, res){
         try {
             const id = req.params.id;
-
             const company = await companyServices.getCompany(id);
             res.status(201).json({
                 message: "OK",

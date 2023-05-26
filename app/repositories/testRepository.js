@@ -1,4 +1,4 @@
-const { Test } = require('../models');
+const { Test, Lessons } = require('../models');
 
 module.exports = {
   create(body){
@@ -22,6 +22,15 @@ module.exports = {
   destroy(id){
     return Test.destroy({
       where: {id}
+    })
+  },
+
+  findTest(condition){
+    return Test.findAll({
+      include: { 
+          model: Lessons,
+          where: condition
+        }
     })
   }
 }

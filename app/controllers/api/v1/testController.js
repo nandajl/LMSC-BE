@@ -73,5 +73,21 @@ module.exports = {
         message: error
       })
     }
+  },
+
+  async handleFindTest(req, res){
+    try {
+      const condition = req.body.group_id;
+      console.log(condition);
+      const test = await testServices.findTest(condition)
+      res.status(201).json({
+        message: "OK",
+        data: test
+      })
+    } catch (error) {
+      res.status(400).json({
+        message: error
+      })
+    }
   }
 }

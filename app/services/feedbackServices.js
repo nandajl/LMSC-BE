@@ -19,5 +19,9 @@ module.exports = {
 
     delete(id){
         return feedbackRepository.delete(id);
+    },
+
+    findFeedback(condition){
+        return feedbackRepository.findFeedback({user_id: condition});
     }
 }
