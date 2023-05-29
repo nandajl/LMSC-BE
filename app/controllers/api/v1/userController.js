@@ -1,11 +1,11 @@
 const userRepositories = require("../../../repositories/userRepositories");
 const companyServices = require("../../../services/companyServices");
-const grupServices = require("../../../services/grupServices");
 const userServices = require("../../../services/userServices");
 
 module.exports = {
     async handleUpdateUser(req, res){
         try {
+            const image = req.file;
             const id = req.params.id;
             const body = req.body;
             const company_code = body.company_code;;
@@ -17,7 +17,9 @@ module.exports = {
                     });
                 }
             }
-            const user = await userRepositories.update(id, body);
+            console.log("image", image);
+            const user = await userServices.update(id, body, image);
+            // const user = await userServices.getUser(id);
             res.status(201).json({
                 message: "OK",
                 data: user
@@ -31,7 +33,7 @@ module.exports = {
 
     async handleGetUser(req,res){
         try {
-            const user = await userRepositories.getUser(req.params.id);
+            const user = await userServices.getUser(req.params.id);
             res.status(201).json({
                 message: "OK",
                 data: user
@@ -45,7 +47,7 @@ module.exports = {
 
     async handleListUser(req,res){
         try {
-            const user = await userRepositories.getAllUser();
+            const user = await userServices.getAllUser();
             res.status(201).json({
                 message: "OK",
                 data: user

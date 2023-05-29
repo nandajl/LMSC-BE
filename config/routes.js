@@ -1,5 +1,6 @@
 const express = require('express');
 const controller = require('../app/controllers');
+const cloudStorage = require('./cloudStorage');
 
 const apiRouter = express.Router();
 
@@ -12,7 +13,7 @@ apiRouter.post('/api/v1/login', controller.api.v1.authController.handleLogin);
 apiRouter.get('/api/v1/user', controller.api.v1.authController.authorize, controller.api.v1.authController.whoAmI)
 
 //user routes
-apiRouter.put('/api/v1/users/:id', controller.api.v1.userController.handleUpdateUser);
+apiRouter.put('/api/v1/users/:id', cloudStorage.single('photo'), controller.api.v1.userController.handleUpdateUser);
 apiRouter.get('/api/v1/users/:id', controller.api.v1.userController.handleGetUser);
 apiRouter.get('/api/v1/users', controller.api.v1.userController.handleListUser);
 apiRouter.post('/api/v1/users/find', controller.api.v1.userController.handleFindAllUser);

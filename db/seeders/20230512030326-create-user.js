@@ -22,6 +22,7 @@ module.exports = {
         company_code:'SHW223',
         password: await authService.encryptPassword('qwerty'),
         role: 'Perusahaan',
+        photo: 'https://res.cloudinary.com/doqt4lhc6/image/upload/v1665022425/samples/animals/kitten-playing.gif',
         createdAt: new Date(),
         updatedAt: new Date(),
       },
