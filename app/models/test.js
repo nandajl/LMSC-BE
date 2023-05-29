@@ -13,13 +13,19 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Test.belongsTo(models.Lessons, {
         foreignKey: 'lessons_id'
+      }),
+      Test.hasMany(models.UserAnswer, {
+        foreignKey: 'test_id'
       })
     }
   }
   Test.init({
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
-    lessons_id: DataTypes.INTEGER
+    lessons_id: DataTypes.INTEGER,
+    time: DataTypes.TIME,
+    availableFrom: DataTypes.DATE,
+    availableTo: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Test',

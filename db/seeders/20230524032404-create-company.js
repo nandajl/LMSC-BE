@@ -14,7 +14,7 @@ module.exports = {
     */
     return queryInterface.bulkInsert('Companies', [
       {
-        name: 'Sahaware',
+        name: 'PT Sahaware Teknologi Indonesia',
         company_code: 'SHW223',
         createdAt: new Date(),
         updatedAt: new Date(),

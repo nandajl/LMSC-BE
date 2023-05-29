@@ -18,6 +18,15 @@ module.exports = {
       lessons_id: {
         type: Sequelize.INTEGER
       },
+      time: {
+        type: Sequelize.TIME
+      },
+      availableFrom: {
+        type: Sequelize.DATE
+      },
+      availableTo: {
+        type: Sequelize.DATE
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

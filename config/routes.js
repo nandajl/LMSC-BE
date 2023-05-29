@@ -66,6 +66,10 @@ apiRouter.delete('/api/v1/question/:id', controller.api.v1.questionController.ha
 apiRouter.post('/api/v1/question/test/:id', controller.api.v1.questionController.handleFindQuestion);
 
 
+// user answer routes
+apiRouter.post('/api/v1/user/answer', controller.api.v1.userAnswerController.handleCreateUserAnswer);
+apiRouter.get('/api/v1/user/answer', controller.api.v1.userAnswerController.handleGetAllUserAnswer);
+
 apiRouter.use(controller.api.main.onLost);
 apiRouter.use(controller.api.main.onError);
 
