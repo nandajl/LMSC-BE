@@ -21,5 +21,17 @@ module.exports = {
         message: error.message
       })
     }
+  },
+
+  async handleFindAllUserAnswer(req, res) {
+    try {
+      const { user_id } = req.body.user_id
+      const userAnswer = await userAnswerServices.findAllUserAnswer(user_id);
+      res.status(200).json(userAnswer);
+    } catch (error) {
+      res.status(500).json({
+        message: error.message
+      })
+    }
   }
 }

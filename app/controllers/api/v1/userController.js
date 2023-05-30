@@ -8,8 +8,17 @@ module.exports = {
             const image = req.file;
             const id = req.params.id;
             const body = req.body;
-            const company_code = body.company_code;;
-            if (company_code) {
+            const company_code = body.company_code;
+            console.log("body", body);
+            if (body.company_code !== null) {
+                console.log("company_code this", company_code);
+                const user = await userServices.update(id, body, image);
+                return res.status(201).json({
+                    message: "OK",
+                    data: user
+                });
+            }else {
+                console.log("kesini");
                 const company = await companyServices.findCompany(company_code)
                 if (!company) {
                     return res.status(404).json({
@@ -17,7 +26,6 @@ module.exports = {
                     });
                 }
             }
-            console.log("image", image);
             const user = await userServices.update(id, body, image);
             // const user = await userServices.getUser(id);
             res.status(201).json({

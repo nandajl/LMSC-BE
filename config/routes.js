@@ -69,6 +69,7 @@ apiRouter.post('/api/v1/question/test/:id', controller.api.v1.questionController
 
 // user answer routes
 apiRouter.post('/api/v1/user/answer', controller.api.v1.userAnswerController.handleCreateUserAnswer);
+apiRouter.post('/api/v1/user/answer/find', controller.api.v1.userAnswerController.handleFindAllUserAnswer);
 apiRouter.get('/api/v1/user/answer', controller.api.v1.userAnswerController.handleGetAllUserAnswer);
 
 apiRouter.use(controller.api.main.onLost);

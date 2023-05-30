@@ -7,5 +7,9 @@ module.exports = {
 
   getAllUserAnswer() {
     return userAnswerRepositories.getAllUserAnswer();
+  },
+
+  findAllUserAnswer(condition){
+    return userAnswerRepositories.findAllUserAnswer();
   }
 }

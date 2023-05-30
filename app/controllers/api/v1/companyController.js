@@ -5,9 +5,7 @@ module.exports = {
     async handleCreateCompany(req, res){
         try {
             const body = req.body;
-            const code = crypto.randomBytes(3).toString('hex');
-            body.company_code = code
-            console.log(body);
+            console.log(body)
             const company = await companyServices.create(body);
             res.status(201).json({
                 message:"OK",
