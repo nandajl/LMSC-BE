@@ -15,8 +15,14 @@ module.exports = {
       body: {
         type: Sequelize.TEXT
       },
-      group_id: {
-        type: Sequelize.INTEGER
+      course_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Courses',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
       createdAt: {
         allowNull: false,

@@ -14,28 +14,36 @@ module.exports = {
         references: {
           model: 'Users',
           key: 'id'
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
       question_id: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Questions',
           key: 'id'
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
       test_id: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Tests',
           key: 'id'
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
       selected_answer_id: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Answers',
           key: 'id'
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
       user_answer: {
         type: Sequelize.TEXT

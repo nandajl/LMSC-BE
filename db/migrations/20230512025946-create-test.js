@@ -9,14 +9,20 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      course_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Courses',
+          key: 'id'
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
+      },
       title: {
         type: Sequelize.STRING
       },
       description: {
         type: Sequelize.TEXT
-      },
-      lessons_id: {
-        type: Sequelize.INTEGER
       },
       time: {
         type: Sequelize.TIME

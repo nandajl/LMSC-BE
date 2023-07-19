@@ -14,9 +14,6 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Feedback, {
         foreignKey: 'user_id'
       }),
-      User.belongsTo(models.Grup, {
-        foreignKey: 'group_id'
-      }),
       User.hasMany(models.UserAnswer, {
         foreignKey: 'user_id'
       })
@@ -24,14 +21,12 @@ module.exports = (sequelize, DataTypes) => {
   }
   User.init({
     username: DataTypes.STRING,
+    nim: DataTypes.STRING,
     email: DataTypes.STRING,
     password: DataTypes.STRING,
     role: DataTypes.STRING,
-    firstName: DataTypes.STRING,
-    lastName: DataTypes.STRING,
     photo: DataTypes.STRING,
     phone: DataTypes.STRING,
-    company_code: DataTypes.STRING,
     address: DataTypes.STRING,
     group_id: DataTypes.INTEGER
   }, {

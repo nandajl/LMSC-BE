@@ -17,7 +17,9 @@ module.exports = {
         references: {
           model: 'Questions',
           key: 'id'
-        }
+        },
+        onDelete: 'CASCADE',
+        onUpdate: 'CASCADE',
       },
       is_correct: {
         type: Sequelize.BOOLEAN

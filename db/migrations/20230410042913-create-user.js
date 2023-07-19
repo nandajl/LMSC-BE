@@ -12,6 +12,9 @@ module.exports = {
       username: {
         type: Sequelize.STRING
       },
+      nim: {
+        type: Sequelize.STRING
+      },
       email: {
         type: Sequelize.STRING
       },
@@ -21,26 +24,14 @@ module.exports = {
       role: {
         type: Sequelize.STRING
       },
-      firstName: {
-        type: Sequelize.STRING
-      },
-      lastName: {
-        type: Sequelize.STRING
-      },
       photo: {
         type: Sequelize.STRING
       },
       phone: {
         type: Sequelize.STRING
       },
-      company_code: {
-        type: Sequelize.STRING
-      },
       address: {
         type: Sequelize.STRING
-      },
-      group_id: {
-        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
