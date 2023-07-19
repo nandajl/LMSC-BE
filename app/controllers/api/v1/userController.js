@@ -1,5 +1,4 @@
 const userRepositories = require("../../../repositories/userRepositories");
-const companyServices = require("../../../services/companyServices");
 const userServices = require("../../../services/userServices");
 
 module.exports = {
