@@ -6,6 +6,7 @@ const feedbackController = require('./feedbackController');
 const questionController = require('./questionController');
 const userAnswerController = require('./userAnswerController');
 const courseController = require('./courseController');
+const enrollmentController = require('./enrollmentController');
 
 module.exports = {
     userController,
@@ -15,5 +16,6 @@ module.exports = {
     feedbackController,
     questionController,
     userAnswerController,
-    courseController
+    courseController,
+    enrollmentController,
 }
