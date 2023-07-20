@@ -22,6 +22,7 @@ module.exports = {
     },
 
     findUser(condition){
+        console.log("condition", condition);
         return User.findOne({
             where: condition
         })

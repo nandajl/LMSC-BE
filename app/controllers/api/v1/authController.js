@@ -3,14 +3,21 @@ const authServices = require("../../../services/authServices")
 module.exports = {
     async handleRegister(req, res){
         try {
-            const {username, email, password} = req.body;
-            const user = await authServices.register(username, email, password);
-
-            if (user.code == 401) {
-                return res.status(401).json({
+            const {email, nim} = req.body
+            const user = await authServices.register(req.body);
+            if(user.code == 401) {
+                res.status(401).json({
                     status: "FAIL",
                     message: `User with email ${email} already exist, pleas login`
                 })
+                return;
+            }
+            if(user.code == 402) {
+                res.status(401).json({
+                    status: "FAIL",
+                    message: `User with NIM ${nim} already exist, pleas login`
+                })
+                return;
             }
             res.status(201).json({
                 status: "OK",

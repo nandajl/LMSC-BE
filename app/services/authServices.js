@@ -36,8 +36,9 @@ module.exports = {
     createWebToken,
     verifyToken,
 
-    async register(username, email, password){
+    async register(body){
         try {
+            const { nim, username, email, password } = body
             const encryptedPassword = await encryptPassword(password);
             const checkUser = await userRepositories.findUser({email});
             if (checkUser) {
@@ -45,12 +46,19 @@ module.exports = {
                     code: "401"
                 }
             }
-            const body = {
+            const checkNIM = await userRepositories.findUser({nim});
+            if (checkNIM) {
+                return {
+                    code: "402"
+                }
+            }
+            const register = {
+                nim,
                 username,
                 email,
                 password: encryptedPassword
             };
-            const user  = await userRepositories.create(body);
+            const user  = await userRepositories.create(register);
 
             return user;
         } catch (error) {
