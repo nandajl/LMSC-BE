@@ -68,9 +68,15 @@ apiRouter.post('/api/v1/course/user', controller.api.v1.courseController.handleF
 //enrollment Routes
 apiRouter.get('/api/v1/enrollment', controller.api.v1.enrollmentController.handleGetAllEnrollment);
 apiRouter.post('/api/v1/enrollment', controller.api.v1.enrollmentController.handleCreateEnrollment);
-apiRouter.put('/api/v1/enrollment/:id', controller.api.v1.enrollmentController.handleUpdateEnrollment);
 apiRouter.get('/api/v1/enrollment/:id', controller.api.v1.enrollmentController.handleGetEnrollment);
 apiRouter.delete('/api/v1/enrollment/:id', controller.api.v1.enrollmentController.handleDeleteEnrollment);
+
+//assignment Routes
+apiRouter.post('/api/v1/assignment/course', controller.api.v1.assignmentController.handleFindEnrollment);
+apiRouter.post('/api/v1/assignment', controller.api.v1.assignmentController.handleCreateEnrollment);
+apiRouter.put('/api/v1/assignment/:id', controller.api.v1.assignmentController.handleUpdateAssignment);
+apiRouter.get('/api/v1/assignment/:id', controller.api.v1.assignmentController.handleGetEnrollment);
+apiRouter.delete('/api/v1/assignment/:id', controller.api.v1.assignmentController.handleDeleteEnrollment);
 
 apiRouter.use(controller.api.main.onLost);
 apiRouter.use(controller.api.main.onError);

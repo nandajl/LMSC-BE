@@ -19,7 +19,10 @@ module.exports = (sequelize, DataTypes) => {
   Assignment.init({
     course_id: DataTypes.INTEGER,
     title: DataTypes.STRING,
-    description: DataTypes.TEXT
+    description: DataTypes.TEXT,
+    content: DataTypes.TEXT,
+    availableFrom: DataTypes.DATE,
+    availableTo: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'Assignment',
