@@ -72,11 +72,18 @@ apiRouter.get('/api/v1/enrollment/:id', controller.api.v1.enrollmentController.h
 apiRouter.delete('/api/v1/enrollment/:id', controller.api.v1.enrollmentController.handleDeleteEnrollment);
 
 //assignment Routes
-apiRouter.post('/api/v1/assignment/course', controller.api.v1.assignmentController.handleFindEnrollment);
-apiRouter.post('/api/v1/assignment', controller.api.v1.assignmentController.handleCreateEnrollment);
+apiRouter.post('/api/v1/assignment/course', controller.api.v1.assignmentController.handleFindAssignment);
+apiRouter.post('/api/v1/assignment', controller.api.v1.assignmentController.handleCreateAssignment);
 apiRouter.put('/api/v1/assignment/:id', controller.api.v1.assignmentController.handleUpdateAssignment);
-apiRouter.get('/api/v1/assignment/:id', controller.api.v1.assignmentController.handleGetEnrollment);
-apiRouter.delete('/api/v1/assignment/:id', controller.api.v1.assignmentController.handleDeleteEnrollment);
+apiRouter.get('/api/v1/assignment/:id', controller.api.v1.assignmentController.handleGetAssignment);
+apiRouter.delete('/api/v1/assignment/:id', controller.api.v1.assignmentController.handleDeleteAssignment);
+
+//submission Routes
+apiRouter.post('/api/v1/submission/assignment', controller.api.v1.submissionController.handleFindSubmission);
+apiRouter.post('/api/v1/submission', controller.api.v1.submissionController.handleCreateSubmission);
+apiRouter.put('/api/v1/submission/:id', controller.api.v1.submissionController.handleUpdateSubmission);
+apiRouter.get('/api/v1/submission/:id', controller.api.v1.submissionController.handleGetSubmission);
+apiRouter.delete('/api/v1/submission/:id', controller.api.v1.submissionController.handleDeleteSubmission);
 
 apiRouter.use(controller.api.main.onLost);
 apiRouter.use(controller.api.main.onError);

@@ -1,48 +1,51 @@
-const assignmentServices = require("../../../services/assignmentServices");
+const submissionService = require("../../../services/submissionService");
 
 module.exports = {
-  async handleCreateAssignment(req, res) {
+  async handleCreateSubmission(req,res){
     try {
       const body = req.body;
-      const response = await assignmentServices.create(body);
+      const response = await submissionService.create(body);
       res.status(201).json(response);
     } catch (error) {
       res.status(500).json(error);
     }
   },
-  async handleUpdateAssignment(req, res) {
+
+  async handleUpdateSubmission(req,res){
     try {
       const body = req.body;
       const id = req.params.id;
-      const response = await assignmentServices.update(body, id);
+      const response = await submissionService.update(body, id);
       res.status(201).json(response);
     } catch (error) {
       res.status(500).json(error);
     }
   },
-  async handleDeleteAssignment(req, res) {
+
+  async handleDeleteSubmission(req,res){
     try {
       const id = req.params.id;
-      const response = await assignmentServices.delete(id);
+      const response = await submissionService.delete(id);
       res.status(201).json(response);
     } catch (error) {
       res.status(500).json(error);
     }
   },
-  async handleGetAssignment(req, res) {
+
+  async handleGetSubmission(req,res){
     try {
       const id = req.params.id;
-      const response = await assignmentServices.getAssignment(id);
+      const response = await submissionService.getSubmission(id);
       res.status(200).json(response);
     } catch (error) {
       res.status(500).json(error);
     }
   },
 
-  async handleFindAssignment(req, res) {
+  async handleFindSubmission(req,res){
     try {
-      const courseId = req.body.course_id
-      const response = await assignmentServices.findAssignment(courseId);
+      const assignmentId = req.body.assignment_id
+      const response = await submissionService.findSubmission(assignmentId);
       res.status(200).json(response);
     } catch (error) {
       res.status(500).json(error);

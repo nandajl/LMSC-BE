@@ -8,6 +8,7 @@ const userAnswerController = require('./userAnswerController');
 const courseController = require('./courseController');
 const enrollmentController = require('./enrollmentController');
 const assignmentController = require('./assignmentController');
+const submissionController = require('./submissionController');
 
 module.exports = {
     userController,
@@ -20,4 +21,5 @@ module.exports = {
     courseController,
     enrollmentController,
     assignmentController,
+    submissionController,
 }
