@@ -1,4 +1,4 @@
-const { Course } = require("../models");
+const { Course, Assignment, Lessons, Test } = require("../models");
 
 module.exports = {
   create(body){
@@ -18,11 +18,23 @@ module.exports = {
   },
 
   getCourse(id){
-    return Course.findByPk(id);
+    return Course.findByPk(id, {
+      include: [
+        {model: Lessons},
+        {model: Assignment},
+        {model: Test},
+      ]
+    });
   },
 
   findCourse(condition){
+    console.log("condition", condition);
     return Course.findAll({
+      include: [
+        {model: Lessons},
+        {model: Assignment},
+        {model: Test}
+      ],
       where: condition
     });
   }

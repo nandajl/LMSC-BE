@@ -3,8 +3,9 @@ const assignmentServices = require("../../../services/assignmentServices");
 module.exports = {
   async handleCreateAssignment(req, res) {
     try {
+      const file = req.file;
       const body = req.body;
-      const response = await assignmentServices.create(body);
+      const response = await assignmentServices.create(body, file);
       res.status(201).json(response);
     } catch (error) {
       res.status(500).json(error);

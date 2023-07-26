@@ -5,6 +5,12 @@ module.exports = {
     try {
       const body = req.body;
       const response = await enrollmentServices.create(body);
+      if (response.code === 404) {
+        res.status(404).json({
+          message: response.message
+        });
+        return;
+      }
       res.status(201).json(response);
     } catch (error) {
       res.status(500).json(error);
@@ -34,6 +40,16 @@ module.exports = {
   async handleGetAllEnrollment(req, res) {
     try {
       const response = await enrollmentServices.getAllEnrollment();
+      res.status(200).json(response);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  },
+
+  async handleFindEnrollment(req, res) {
+    try {
+      const user_id = req.body.user_id;
+      const response = await enrollmentServices.findEnrollment(user_id);
       res.status(200).json(response);
     } catch (error) {
       res.status(500).json(error);

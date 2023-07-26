@@ -66,23 +66,38 @@ module.exports = {
         }
     },
 
-    async login(username, password){
+    async login(body){
         try {
-            const user = await userRepositories.findUser({username});
-            if (!user) {
-                return {
-                    code: "404",
-                    message: "User not found, please register"
+            let user;
+            if (body.username) {
+                const {username} = body
+                user = await userRepositories.findUser({username});
+                if (!user) {
+                    return {
+                        code: "404",
+                        message: "Username tidak terdaftar, silahkan Hubungi Admin"
+                    }
                 }
+                
+            }else if (body.nim) {
+                const { nim } = body;
+                user = await userRepositories.findUser({nim});
+                if (!user) {
+                    return {
+                        code: "404",
+                        message: "NIM tidak terdaftar, silahkan registrasi"
+                    }
+                }
+                
             }
-
+            const {password} = body
             const {password: encryptedPassword} = user;
 
             const isAuthenticated = await comparePassword(password, encryptedPassword);
             if (!isAuthenticated) {
                 return {    
                     code: "401",
-                    message: "Wrong Password"
+                    message: "Username atau Password salah"
                 }
             }
 

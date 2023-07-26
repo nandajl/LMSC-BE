@@ -1,6 +1,7 @@
 const express = require('express');
 const controller = require('../app/controllers');
 const cloudStorage = require('./cloudStorage');
+const upload = require('./upload');
 
 const apiRouter = express.Router();
 
@@ -68,12 +69,13 @@ apiRouter.post('/api/v1/course/user', controller.api.v1.courseController.handleF
 //enrollment Routes
 apiRouter.get('/api/v1/enrollment', controller.api.v1.enrollmentController.handleGetAllEnrollment);
 apiRouter.post('/api/v1/enrollment', controller.api.v1.enrollmentController.handleCreateEnrollment);
+apiRouter.post('/api/v1/enrollment/user', controller.api.v1.enrollmentController.handleFindEnrollment);
 apiRouter.get('/api/v1/enrollment/:id', controller.api.v1.enrollmentController.handleGetEnrollment);
 apiRouter.delete('/api/v1/enrollment/:id', controller.api.v1.enrollmentController.handleDeleteEnrollment);
 
 //assignment Routes
 apiRouter.post('/api/v1/assignment/course', controller.api.v1.assignmentController.handleFindAssignment);
-apiRouter.post('/api/v1/assignment', controller.api.v1.assignmentController.handleCreateAssignment);
+apiRouter.post('/api/v1/assignment', upload.single("content"), controller.api.v1.assignmentController.handleCreateAssignment);
 apiRouter.put('/api/v1/assignment/:id', controller.api.v1.assignmentController.handleUpdateAssignment);
 apiRouter.get('/api/v1/assignment/:id', controller.api.v1.assignmentController.handleGetAssignment);
 apiRouter.delete('/api/v1/assignment/:id', controller.api.v1.assignmentController.handleDeleteAssignment);
@@ -85,6 +87,7 @@ apiRouter.put('/api/v1/submission/:id', controller.api.v1.submissionController.h
 apiRouter.get('/api/v1/submission/:id', controller.api.v1.submissionController.handleGetSubmission);
 apiRouter.delete('/api/v1/submission/:id', controller.api.v1.submissionController.handleDeleteSubmission);
 
+apiRouter.get("/file/:filename", controller.api.main.handleGetFile);
 apiRouter.use(controller.api.main.onLost);
 apiRouter.use(controller.api.main.onError);
 

@@ -32,8 +32,8 @@ module.exports = {
     
     async handleLogin(req, res){
         try {
-            const {username, password} = req.body;
-            const auth = await authServices.login(username, password);
+            console.log("bidy", req.body);
+            const auth = await authServices.login(req.body);
             if (auth.code == 401) {
                 return res.status(401).json({
                     message: auth.message

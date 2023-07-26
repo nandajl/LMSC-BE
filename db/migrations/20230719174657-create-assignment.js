@@ -27,6 +27,9 @@ module.exports = {
       content: {
         type: Sequelize.TEXT
       },
+      status: {
+        type: Sequelize.STRING
+      },
       availableFrom: {
         type: Sequelize.DATE
       },

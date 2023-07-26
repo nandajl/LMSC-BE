@@ -20,5 +20,14 @@ module.exports = {
         {model: Course}  
       ]}
     );
+  },
+
+  findEnrollment(condition){
+    return Enrollment.findAll({
+      include: [
+        {model: Course}  
+      ],
+      where: condition
+    })
   }
 }

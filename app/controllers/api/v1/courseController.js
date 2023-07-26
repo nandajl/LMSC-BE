@@ -77,8 +77,8 @@ module.exports = {
 
   async handleFindCourse(req, res){
     try {
-        const dosen_id = req.body.user_id;
-        const course = await courseServices.findCourse(dosen_id)
+        const user_id = req.body.user_id;
+        const course = await courseServices.findCourse(user_id)
         res.status(201).json({
             message: "OK",
             data: course
