@@ -12,7 +12,7 @@ module.exports = {
 	handleGetFile(req, res) {
 		const filename = req.params.filename;
 		console.log("filename", filename);
-    const publicDirectory = path.join(__dirname, "../../../");
+    const publicDirectory = path.join(__dirname, "../../../resources");
 		const uploadDirectory = path.join(publicDirectory, "upload", filename); 
 
     fs.readFile(uploadDirectory, (err, data) => {

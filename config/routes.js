@@ -82,7 +82,7 @@ apiRouter.delete('/api/v1/assignment/:id', controller.api.v1.assignmentControlle
 
 //submission Routes
 apiRouter.post('/api/v1/submission/assignment', controller.api.v1.submissionController.handleFindSubmission);
-apiRouter.post('/api/v1/submission', controller.api.v1.submissionController.handleCreateSubmission);
+apiRouter.post('/api/v1/submission', upload.single("content"), controller.api.v1.submissionController.handleCreateSubmission);
 apiRouter.put('/api/v1/submission/:id', controller.api.v1.submissionController.handleUpdateSubmission);
 apiRouter.get('/api/v1/submission/:id', controller.api.v1.submissionController.handleGetSubmission);
 apiRouter.delete('/api/v1/submission/:id', controller.api.v1.submissionController.handleDeleteSubmission);

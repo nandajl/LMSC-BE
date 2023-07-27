@@ -1,4 +1,4 @@
-const { Submission, Assignment } = require("../models");
+const { Submission, User } = require("../models");
 
 module.exports = {
   create(body) {
@@ -14,8 +14,10 @@ module.exports = {
     return Submission.findByPk(id);
   },
   findSubmission(condition){
-    console.log("condition : ", condition);
     return Submission.findAll({
+      include: [
+        {model: User}
+      ],
       where: condition
     });
   }
