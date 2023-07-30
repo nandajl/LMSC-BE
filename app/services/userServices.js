@@ -41,6 +41,7 @@ module.exports = {
     },
 
     findAllUser(condition){
-        return userRepositories.findAllUser({group_id: condition});
+        const {role} = condition 
+        return userRepositories.findAllUser({role: role});
     }
 }

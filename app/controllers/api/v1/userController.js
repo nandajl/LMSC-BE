@@ -68,8 +68,7 @@ module.exports = {
 
     async handleFindAllUser(req,res){
         try {
-            const group_id = req.body.group_id;
-            const user = await userServices.findAllUser(group_id);
+            const user = await userServices.findAllUser(req.body);
             res.status(201).json(user)
         } catch (error) {
             res.status(400).json({

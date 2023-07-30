@@ -1,4 +1,4 @@
-const { Test, Lessons } = require('../models');
+const { Test, Lessons, Question, Answer } = require('../models');
 
 module.exports = {
   create(body){
@@ -16,7 +16,15 @@ module.exports = {
   },
 
   getTest(id){
-    return Test.findByPk(id)
+    return Test.findByPk(id, {
+      include: [
+        {model: Question, 
+          include: [
+            {model: Answer},
+          ]
+        },
+      ]
+    })
   },
 
   destroy(id){

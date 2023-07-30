@@ -1,4 +1,4 @@
-const { Question, Test } = require('../models');
+const { Question, Test, Answer } = require('../models');
 
 module.exports = {
     create(body) {
@@ -24,7 +24,8 @@ module.exports = {
     findQuestion(condition) {
         return Question.findAll({
             include: [
-                {model: Test}
+                {model: Test},
+                {model: Answer},
             ],
             where: condition
         });

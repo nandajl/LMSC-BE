@@ -25,8 +25,7 @@ module.exports = {
 
   async handleFindAllUserAnswer(req, res) {
     try {
-      const { user_id } = req.body.user_id
-      const userAnswer = await userAnswerServices.findAllUserAnswer(user_id);
+      const userAnswer = await userAnswerServices.findAllUserAnswer(req.body);
       res.status(200).json(userAnswer);
     } catch (error) {
       res.status(500).json({

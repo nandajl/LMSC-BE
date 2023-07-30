@@ -38,7 +38,7 @@ module.exports = {
 
     async register(body){
         try {
-            const { nim, username, email, password } = body
+            const { nim, username, email, password, role } = body
             const encryptedPassword = await encryptPassword(password);
             const checkUser = await userRepositories.findUser({email});
             if (checkUser) {
@@ -46,18 +46,29 @@ module.exports = {
                     code: "401"
                 }
             }
-            const checkNIM = await userRepositories.findUser({nim});
-            if (checkNIM) {
-                return {
-                    code: "402"
+            let register;
+            if (nim) {
+                const checkNIM = await userRepositories.findUser({nim});
+                if (checkNIM) {
+                    return {
+                        code: "402"
+                    }
+                }
+                register = {
+                    nim,
+                    username,
+                    email,
+                    password: encryptedPassword,
+                    role
+                };
+            }else {
+                register = {
+                    username,
+                    email,
+                    password: encryptedPassword,
+                    role
                 }
             }
-            const register = {
-                nim,
-                username,
-                email,
-                password: encryptedPassword
-            };
             const user  = await userRepositories.create(register);
 
             return user;
