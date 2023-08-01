@@ -3,8 +3,9 @@ const lessonsServices = require("../../../services/lessonsServices");
 module.exports = {
     async handleCreateLessons(req, res){
         try {
+            const file = req.file;
             const body = req.body;
-            const lessons = await lessonsServices.create(body)
+            const lessons = await lessonsServices.create(body, file)
             res.status(201).json({
                 message: "OK",
                 data: lessons

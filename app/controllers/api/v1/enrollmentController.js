@@ -48,8 +48,7 @@ module.exports = {
 
   async handleFindEnrollment(req, res) {
     try {
-      const user_id = req.body.user_id;
-      const response = await enrollmentServices.findEnrollment(user_id);
+      const response = await enrollmentServices.findEnrollment(req.body);
       res.status(200).json(response);
     } catch (error) {
       res.status(500).json(error);

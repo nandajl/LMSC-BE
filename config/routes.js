@@ -21,7 +21,7 @@ apiRouter.post('/api/v1/users/find', controller.api.v1.userController.handleFind
 
 //Lessons routes
 apiRouter.get('/api/v1/lessons', controller.api.v1.lessonsController.handleGetAllLessons);
-apiRouter.post('/api/v1/lessons', controller.api.v1.lessonsController.handleCreateLessons);
+apiRouter.post('/api/v1/lessons', upload.single('content'), controller.api.v1.lessonsController.handleCreateLessons);
 apiRouter.post('/api/v1/lessons/find', controller.api.v1.lessonsController.handleFindLesson);
 apiRouter.put('/api/v1/lessons/:id', controller.api.v1.lessonsController.handleUpdateLessons);
 apiRouter.get('/api/v1/lessons/:id', controller.api.v1.lessonsController.handleGetLessons);

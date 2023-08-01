@@ -1,8 +1,14 @@
 const lessonsRepository = require("../repositories/lessonsRepository");
 
 module.exports = {
-    create(body){
-        return lessonsRepository.create(body);
+    create(body, file){
+        if (file === undefined) {
+            return lessonsRepository.create(body);
+        }
+        else {
+            body.content = file.filename;
+            return lessonsRepository.create(body);
+        }
     },
 
     update(body, id){

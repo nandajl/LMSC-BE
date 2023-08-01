@@ -25,7 +25,8 @@ module.exports = {
   findEnrollment(condition){
     return Enrollment.findAll({
       include: [
-        {model: Course}  
+        {model: Course},
+        {model: User} 
       ],
       where: condition
     })

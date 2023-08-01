@@ -29,6 +29,11 @@ module.exports = {
   },
 
   findEnrollment(condition) {
-    return enrollmentRepository.findEnrollment({user_id :condition});
+    const { user_id, course_id } = condition;
+    if (course_id === undefined) {
+      return enrollmentRepository.findEnrollment({user_id :user_id});
+    }else {
+      return enrollmentRepository.findEnrollment({course_id :course_id});
+    }
   }
 }

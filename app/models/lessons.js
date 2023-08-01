@@ -20,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     course_id: DataTypes.INTEGER,
     title: DataTypes.STRING,
     body: DataTypes.TEXT,
+    content: DataTypes.TEXT
   }, {
     sequelize,
     modelName: 'Lessons',
