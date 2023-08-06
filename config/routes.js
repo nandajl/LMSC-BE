@@ -87,6 +87,10 @@ apiRouter.put('/api/v1/submission/:id', controller.api.v1.submissionController.h
 apiRouter.get('/api/v1/submission/:id', controller.api.v1.submissionController.handleGetSubmission);
 apiRouter.delete('/api/v1/submission/:id', controller.api.v1.submissionController.handleDeleteSubmission);
 
+//notification Routes
+apiRouter.post('/api/v1/notification/user', controller.api.v1.notificationController.handleFindNotification);
+apiRouter.put('/api/v1/notification/:id', controller.api.v1.notificationController.handleUpdateNotification);
+
 apiRouter.get("/file/:filename", controller.api.main.handleGetFile);
 apiRouter.use(controller.api.main.onLost);
 apiRouter.use(controller.api.main.onError);

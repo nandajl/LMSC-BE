@@ -5,6 +5,7 @@ module.exports = {
     try {
       const body = req.body;
       const test = await testServices.create(body)
+      console.log("test", test);
       res.status(201).json({
         message: "OK",
         data: test
