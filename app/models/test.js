@@ -11,8 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Test.belongsTo(models.Course, {
-        foreignKey: 'course_id'
+      Test.belongsTo(models.Classes, {
+        foreignKey: 'class_id'
       }),
       Test.hasMany(models.UserAnswer, {
         foreignKey: 'test_id'
@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Test.init({
-    course_id: DataTypes.INTEGER,
+    class_id: DataTypes.INTEGER,
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
     time: DataTypes.TIME,

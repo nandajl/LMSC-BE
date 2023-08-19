@@ -42,8 +42,8 @@ module.exports = {
 
   async handleFindAssignment(req, res) {
     try {
-      const courseId = req.body.course_id
-      const response = await assignmentServices.findAssignment(courseId);
+      const classId = req.body.class_id
+      const response = await assignmentServices.findAssignment(classId);
       res.status(200).json(response);
     } catch (error) {
       res.status(500).json(error);

@@ -1,4 +1,4 @@
-const { Notification, User, Course } = require('../models');
+const { Notification, User, Classes } = require('../models');
 
 module.exports = {
   create(body) {
@@ -13,7 +13,7 @@ module.exports = {
     return Notification.findAll({
       include: [
         {model: User},
-        {model: Course},
+        {model: Classes},
       ],
       where: condition
     });

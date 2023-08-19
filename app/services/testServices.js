@@ -7,13 +7,13 @@ module.exports = {
         try {
             const response = await testRepository.create(body);
             if (response) {
-            const { course_id } = response;
-            const enrollment = await enrollmentRepository.findEnrollment({course_id: course_id});
+            const { class_id } = response;
+            const enrollment = await enrollmentRepository.findEnrollment({class_id: class_id});
             enrollment.map((enrollment) => {
                 notificationRepository.create({
                 user_id: enrollment.user_id,
-                course_id: enrollment.course_id,
-                message: `Kuis baru untuk mata kuliah ${enrollment.Course.name}`,
+                class_id: enrollment.class_id,
+                message: `Kuis baru untuk mata kuliah ${enrollment.CLasses.name}`,
                 is_read: false
                 })
             })

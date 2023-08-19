@@ -19,9 +19,10 @@ module.exports = {
 
     async handleUpdateLessons(req, res){
         try {
+            const file = req.file;
             const body = req.body;
             const id = req.params.id;
-            const lessons = await lessonsServices.update(body,id)
+            const lessons = await lessonsServices.update(body,id, file)
             res.status(201).json({
                 message: "OK",
                 data: lessons

@@ -1,18 +1,18 @@
 const enrollmentRepository = require("../repositories/enrollmentRepository");
-const courseRepository = require('../repositories/courseRepository');
+const classRepository = require('../repositories/classRepository');
 
 module.exports = {
   async create(body) {
     try {
       const { code } = body;
-      const isValid = await courseRepository.findCourse({code: code});
+      const isValid = await classRepository.findClass({code: code});
       if (isValid.length === 0) {
         return {
           code : 404,
           message : "Kode Tidak Valid" 
         };
       }
-      body.course_id = isValid[0].id;
+      body.class_id = isValid[0].id;
       return enrollmentRepository.create(body);
     } catch (error) {
       return error;
@@ -29,11 +29,11 @@ module.exports = {
   },
 
   findEnrollment(condition) {
-    const { user_id, course_id } = condition;
-    if (course_id === undefined) {
+    const { user_id, class_id } = condition;
+    if (class_id === undefined) {
       return enrollmentRepository.findEnrollment({user_id :user_id});
     }else {
-      return enrollmentRepository.findEnrollment({course_id :course_id});
+      return enrollmentRepository.findEnrollment({class_id :class_id});
     }
   }
 }

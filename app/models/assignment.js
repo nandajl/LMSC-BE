@@ -11,13 +11,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Assignment.belongsTo(models.Course, {
-        foreignKey:"course_id"
+      Assignment.belongsTo(models.Classes, {
+        foreignKey:"class_id"
       })
     }
   }
   Assignment.init({
-    course_id: DataTypes.INTEGER,
+    class_id: DataTypes.INTEGER,
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
     content: DataTypes.TEXT,

@@ -23,7 +23,7 @@ apiRouter.post('/api/v1/users/find', controller.api.v1.userController.handleFind
 apiRouter.get('/api/v1/lessons', controller.api.v1.lessonsController.handleGetAllLessons);
 apiRouter.post('/api/v1/lessons', upload.single('content'), controller.api.v1.lessonsController.handleCreateLessons);
 apiRouter.post('/api/v1/lessons/find', controller.api.v1.lessonsController.handleFindLesson);
-apiRouter.put('/api/v1/lessons/:id', controller.api.v1.lessonsController.handleUpdateLessons);
+apiRouter.put('/api/v1/lessons/:id', upload.single('content'), controller.api.v1.lessonsController.handleUpdateLessons);
 apiRouter.get('/api/v1/lessons/:id', controller.api.v1.lessonsController.handleGetLessons);
 apiRouter.delete('/api/v1/lessons/:id', controller.api.v1.lessonsController.handleDeleteLessons);
 
@@ -64,7 +64,14 @@ apiRouter.post('/api/v1/course', controller.api.v1.courseController.handleCreate
 apiRouter.put('/api/v1/course/:id', controller.api.v1.courseController.handleUpdateCourse);
 apiRouter.get('/api/v1/course/:id', controller.api.v1.courseController.handleGetCourse);
 apiRouter.delete('/api/v1/course/:id', controller.api.v1.courseController.handleDeleteCourse);
-apiRouter.post('/api/v1/course/user', controller.api.v1.courseController.handleFindCourse);
+
+//class Routes
+apiRouter.get('/api/v1/class', controller.api.v1.classController.handleGetAllClass);
+apiRouter.post('/api/v1/class', controller.api.v1.classController.handleCreateClass);
+apiRouter.put('/api/v1/class/:id', controller.api.v1.classController.handleUpdateClass);
+apiRouter.get('/api/v1/class/:id', controller.api.v1.classController.handleGetClass);
+apiRouter.delete('/api/v1/class/:id', controller.api.v1.classController.handleDeleteClass);
+apiRouter.post('/api/v1/class/user', controller.api.v1.classController.handleFindClass);
 
 //enrollment Routes
 apiRouter.get('/api/v1/enrollment', controller.api.v1.enrollmentController.handleGetAllEnrollment);

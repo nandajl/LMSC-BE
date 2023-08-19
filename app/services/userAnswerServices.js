@@ -11,7 +11,10 @@ module.exports = {
 
   findAllUserAnswer(condition){
     const {user_id, test_id} = condition;
-    if (test_id) {
+    if (test_id && user_id) {
+      return userAnswerRepositories.findAllUserAnswer({test_id: test_id, user_id: user_id});
+    }
+    else if (test_id) {
       return userAnswerRepositories.findAllUserAnswer({test_id: test_id});
     }
     return userAnswerRepositories.findAllUserAnswer({user_id: user_id});  

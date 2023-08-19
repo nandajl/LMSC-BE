@@ -1,4 +1,4 @@
-const { UserAnswer, User, Test, Question } = require('../models');
+const { UserAnswer, User, Test, Question, Answer } = require('../models');
 
 module.exports = {
   create(body) {
@@ -18,7 +18,12 @@ module.exports = {
       include: [
         {model: User},
         {model: Test},
-        {model: Question}
+        {model: Question, 
+          include : [
+            {model: Answer},
+          ]
+        },
+        {model: Answer}
       ],
       where: condition
     })

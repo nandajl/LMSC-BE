@@ -1,4 +1,4 @@
-const { Assignment, Course } = require("../models");
+const { Assignment, Class } = require("../models");
 
 module.exports = {
   create(body) {
@@ -16,7 +16,7 @@ module.exports = {
   findAssignment(condition){
     return Assignment.findAll({
       include: [
-        {model: Course},
+        {model: Class},
       ],
       where: condition
     });

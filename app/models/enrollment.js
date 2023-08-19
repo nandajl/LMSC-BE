@@ -14,14 +14,14 @@ module.exports = (sequelize, DataTypes) => {
       Enrollment.belongsTo(models.User, {
         foreignKey:"user_id"
       })
-      Enrollment.belongsTo(models.Course, {
-        foreignKey:"course_id"
+      Enrollment.belongsTo(models.Classes, {
+        foreignKey:"class_id"
       })
     }
   }
   Enrollment.init({
     user_id: DataTypes.INTEGER,
-    course_id: DataTypes.INTEGER
+    class_id: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Enrollment',

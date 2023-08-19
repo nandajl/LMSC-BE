@@ -19,9 +19,6 @@ module.exports = {
 
   getCourse(id){
     return courseRepository.getCourse(id);
-  },
-
-  findCourse(condition){
-    return courseRepository.findCourse({user_id: condition});
   }
+
 }

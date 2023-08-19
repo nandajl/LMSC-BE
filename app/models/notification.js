@@ -14,14 +14,14 @@ module.exports = (sequelize, DataTypes) => {
       Notification.belongsTo(models.User, {
         foreignKey: "user_id"
       }),
-      Notification.belongsTo(models.Course, {
-        foreignKey: "course_id"
+      Notification.belongsTo(models.Classes, {
+        foreignKey: "class_id"
       })
     }
   }
   Notification.init({
     user_id: DataTypes.INTEGER,
-    course_id: DataTypes.INTEGER,
+    class_id: DataTypes.INTEGER,
     message: DataTypes.TEXT,
     is_read: DataTypes.BOOLEAN
   }, {

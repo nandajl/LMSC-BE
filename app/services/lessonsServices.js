@@ -11,8 +11,15 @@ module.exports = {
         }
     },
 
-    update(body, id){
-        return lessonsRepository.update(body, id);
+    update(body, id, file){
+        if (file === undefined) {
+            return lessonsRepository.update(body, id);
+        }
+        else {
+            body.content = file.filename;
+            console.log("body", body);
+            return lessonsRepository.update(body, id);
+        }
     },
 
     getLessons(id){

@@ -1,13 +1,13 @@
-const courseServices = require("../../../services/courseServices");
+const classServices = require("../../../services/classServices");
 
 module.exports = {
-  async handleCreateCourse(req, res){
+  async handleCreateClass(req, res){
     try {
         console.log("req", req.body);
-        const course = await courseServices.create(req.body)
+        const classes = await classServices.create(req.body)
         res.status(201).json({
           message: "OK", 
-          data: course
+          data: classes
         })
     } catch (error) {
         res.status(400).json({
@@ -16,14 +16,14 @@ module.exports = {
     }
   },
 
-  async handleUpdateCourse(req, res){
+  async handleUpdateClass(req, res){
     try {
         const body = req.body;
         const id = req.params.id;
-        const course = await courseServices.update(body, id)
+        const classes = await classServices.update(body, id)
         res.status(201).json({
             message: "OK",
-            data: course
+            data: classes
         })
     } catch (error) {
         res.status(400).json({
@@ -32,12 +32,12 @@ module.exports = {
     }
   },
 
-  async handleGetAllCourse(req, res){
+  async handleGetAllClass(req, res){
     try {
-        const course = await courseServices.getAllCourse()
+        const classes = await classServices.getAllClass()
         res.status(201).json({
             message: "OK",
-            data: course
+            data: classes
         })
     } catch (error) {
         res.status(400).json({
@@ -46,28 +46,13 @@ module.exports = {
     }
   },
 
-  async handleGetCourse(req, res){
-    try {
-        const id = req.params.id;
-        const course = await courseServices.getCourse(id)
-        res.status(201).json({
-            message: "OK",
-            data: course
-        })
-    } catch (error) {
-        res.status(400).json({
-            message: error
-        })
-    }
-  },
-
-  async handleDeleteCourse(req, res){
+  async handleGetClass(req, res){
     try {
         const id = req.params.id;
-        const course = await courseServices.delete(id)
+        const classes = await classServices.getClass(id)
         res.status(201).json({
             message: "OK",
-            data: course
+            data: classes
         })
     } catch (error) {
         res.status(400).json({
@@ -76,13 +61,28 @@ module.exports = {
     }
   },
 
-  async handleFindCourse(req, res){
+  async handleDeleteClass(req, res){
+    try {
+        const id = req.params.id;
+        const classes = await classServices.delete(id)
+        res.status(201).json({
+            message: "OK",
+            data: classes
+        })
+    } catch (error) {
+        res.status(400).json({
+            message: error
+        })
+    }
+  },
+
+  async handleFindClass(req, res){
     try {
         const user_id = req.body.user_id;
-        const course = await courseServices.findCourse(user_id)
+        const classes = await classServices.findClass(user_id)
         res.status(201).json({
             message: "OK",
-            data: course
+            data: classes
         })
     } catch (error) {
         res.status(400).json({

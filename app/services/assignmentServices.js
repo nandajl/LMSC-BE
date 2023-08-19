@@ -8,12 +8,12 @@ module.exports = {
       if (file == undefined) {
         const response = await assignmentRepository.create(body);
         if (response) {
-          const { course_id } = response;
-          const enrollment = await enrollmentRepository.findEnrollment({course_id: course_id});
+          const { class_id } = response;
+          const enrollment = await enrollmentRepository.findEnrollment({class_id: class_id});
           enrollment.map((enrollment) => {
             notificationRepository.create({
               user_id: enrollment.user_id,
-              course_id: enrollment.course_id,
+              class_id: enrollment.class_id,
               message: `Kamu Memiliki Tugas baru untuk mata kuliah ${enrollment.Course.name}`,
               is_read: false
             })
@@ -25,12 +25,12 @@ module.exports = {
         body.content = file.filename;
         const response = await assignmentRepository.create(body);
         if (response) {
-          const { course_id } = response;
-          const enrollment = await enrollmentRepository.findEnrollment({course_id: course_id});
+          const { class_id } = response;
+          const enrollment = await enrollmentRepository.findEnrollment({class_id: class_id});
           enrollment.map((enrollment) => {
             notificationRepository.create({
               user_id: enrollment.user_id,
-              course_id: enrollment.course_id,
+              class_id: enrollment.class_id,
               message: `Kamu Memiliki Tugas baru untuk mata kuliah ${enrollment.Course.name}`,
               is_read: false
             })
@@ -52,6 +52,6 @@ module.exports = {
     return assignmentRepository.getAssignment(id);
   },
   findAssignment(condition){
-    return assignmentRepository.findAssignment({course_id: condition});
+    return assignmentRepository.findAssignment({class_id: condition});
   }
 }

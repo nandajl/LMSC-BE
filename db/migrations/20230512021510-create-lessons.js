@@ -18,10 +18,10 @@ module.exports = {
       body: {
         type: Sequelize.TEXT
       },
-      course_id: {
+      class_id: {
         type: Sequelize.INTEGER,
         references: {
-          model: 'Courses',
+          model: 'Classes',
           key: 'id'
         },
         onDelete: 'CASCADE',
