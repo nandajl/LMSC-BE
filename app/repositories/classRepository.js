@@ -17,6 +17,7 @@ module.exports = {
     return Classes.findAll({
       include: [
         {model: User},
+        {model: Course},
       ]
     });
   },

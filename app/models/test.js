@@ -27,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
     title: DataTypes.STRING,
     description: DataTypes.TEXT,
     time: DataTypes.TIME,
+    is_visible: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false
+    },
     availableFrom: DataTypes.DATE,
     availableTo: DataTypes.DATE
   }, {

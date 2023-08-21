@@ -1,4 +1,4 @@
-const { Enrollment, User, Classes } = require("../models");
+const { Enrollment, User, Classes, Course } = require("../models");
 
 module.exports = {
   create(body){
@@ -17,7 +17,11 @@ module.exports = {
     return Enrollment.findByPk(id, 
       {include: [
         {model: User},
-        {model: Classes}  
+        {model: Classes, 
+          include: [
+            {model: Course}
+          ]
+        }  
       ]}
     );
   },
@@ -25,7 +29,11 @@ module.exports = {
   findEnrollment(condition){
     return Enrollment.findAll({
       include: [
-        {model: Classes},
+        {model: Classes, 
+          include: [
+            {model: Course}
+          ]
+        },
         {model: User} 
       ],
       where: condition

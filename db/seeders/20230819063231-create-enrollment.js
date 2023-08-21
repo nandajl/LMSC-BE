@@ -12,31 +12,22 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    return queryInterface.bulkInsert('Classes', [
+    return queryInterface.bulkInsert('Enrollments', [
       {
-        user_id: 2,
-        course_id: 1,
-        name: "Manajemen Informatika",
-        description: "Pembelajaran pemrograman web secara dinamis",
-        tahun_ajaran: "2022/2023",
+        user_id: 37,
+        class_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        user_id: 2,
-        course_id: 2,
-        name: "Manajemen Informatika",
-        description: "Pembelajaran pemrograman web secara dinamis",
-        tahun_ajaran: "2022/2023",
+        user_id: 38,
+        class_id: 1,
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
-        user_id: 3,
-        course_id: 3,
-        name: "Manajemn Informatika",
-        description: "Pembelajaran pemrograman mobile",
-        tahun_ajaran: "2022/2023",
+        user_id: 39,
+        class_id: 2,
         createdAt: new Date(),
         updatedAt: new Date(),
       },

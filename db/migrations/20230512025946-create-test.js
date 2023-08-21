@@ -27,6 +27,10 @@ module.exports = {
       time: {
         type: Sequelize.TIME
       },
+      is_visible: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false
+      },
       availableFrom: {
         type: Sequelize.DATE
       },
