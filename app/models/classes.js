@@ -21,7 +21,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey:"class_id"
       })
       Classes.belongsTo(models.User, {
-        foreignKey:"user_id"
+        as:"dosen_1",
+        foreignKey:"dosen_id_1"
+      })
+      Classes.belongsTo(models.User, {
+        as:"dosen_2",
+        foreignKey:"dosen_id_2"
       })
       Classes.belongsTo(models.Course, {
         foreignKey:"course_id"
@@ -32,7 +37,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Classes.init({
-    user_id: DataTypes.INTEGER,
+    dosen_id_1: DataTypes.INTEGER,
+    dosen_id_2: DataTypes.INTEGER,
     course_id: DataTypes.INTEGER,
     code: DataTypes.STRING,
     name: DataTypes.STRING,

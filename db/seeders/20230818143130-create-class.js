@@ -14,7 +14,8 @@ module.exports = {
     */
     return queryInterface.bulkInsert('Classes', [
       {
-        user_id: 2,
+        dosen_1_id: 2,
+        dosen_2_id: 5,
         course_id: 1,
         name: "Manajemen Informatika",
         description: "Pembelajaran pemrograman web secara dinamis",
@@ -23,7 +24,8 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        user_id: 2,
+        dosen_1_id: 2,
+        dosen_2_id: 7,
         course_id: 2,
         name: "Manajemen Informatika",
         description: "Pembelajaran pemrograman web secara dinamis",
@@ -32,7 +34,8 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        user_id: 3,
+        dosen_1_id: 3,
+        dosen_2_id: 8,
         course_id: 3,
         name: "Manajemn Informatika",
         description: "Pembelajaran pemrograman mobile",

@@ -16,7 +16,8 @@ module.exports = {
   getAllClass(){
     return Classes.findAll({
       include: [
-        {model: User},
+        {model: User, as: "dosen_1"},
+        {model: User, as: "dosen_2"},
         {model: Course},
       ]
     });
@@ -29,7 +30,8 @@ module.exports = {
         {model: Lessons},
         {model: Assignment},
         {model: Test},
-        {model: User}
+        {model: User, as: "dosen_1"},
+        {model: User, as: "dosen_2"}
       ]
     });
   },
