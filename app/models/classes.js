@@ -38,7 +38,10 @@ module.exports = (sequelize, DataTypes) => {
   }
   Classes.init({
     dosen_id_1: DataTypes.INTEGER,
-    dosen_id_2: DataTypes.INTEGER,
+    dosen_id_2:{
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
     course_id: DataTypes.INTEGER,
     code: DataTypes.STRING,
     name: DataTypes.STRING,

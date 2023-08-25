@@ -22,6 +22,11 @@ module.exports = {
   },
 
   findClass(condition){
-    return classRepository.findClass({user_id: condition});
+    const data = classRepository.findClass({dosen_id_1: condition});
+    if (!data) {
+      return classRepository.findClass({dosen_id_2: condition});
+    }
+    return data;
+    
   }
 }

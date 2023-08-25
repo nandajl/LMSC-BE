@@ -9,7 +9,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      dosen_1_id: {
+      dosen_id_1: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',
@@ -18,7 +18,7 @@ module.exports = {
         onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
       },
-      dosen_2_id: {
+      dosen_id_2: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Users',

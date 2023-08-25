@@ -22,11 +22,11 @@ module.exports = (sequelize, DataTypes) => {
       })
       User.hasMany(models.Classes, {
         as:"dosen_1",
-        foreignKey: 'dosen_1_id'
+        foreignKey: 'dosen_id_1'
       })
       User.hasMany(models.Classes, {
         as:"dosen_2",
-        foreignKey: 'dosen_2_id'
+        foreignKey: 'dosen_id_2'
       })
     }
   }
