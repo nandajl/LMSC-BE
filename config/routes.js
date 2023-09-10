@@ -72,6 +72,7 @@ apiRouter.put('/api/v1/class/:id', controller.api.v1.classController.handleUpdat
 apiRouter.get('/api/v1/class/:id', controller.api.v1.classController.handleGetClass);
 apiRouter.delete('/api/v1/class/:id', controller.api.v1.classController.handleDeleteClass);
 apiRouter.post('/api/v1/class/user', controller.api.v1.classController.handleFindClass);
+apiRouter.post('/api/v1/class/course', controller.api.v1.classController.handleFindClassCourseId);
 
 //enrollment Routes
 apiRouter.get('/api/v1/enrollment', controller.api.v1.enrollmentController.handleGetAllEnrollment);

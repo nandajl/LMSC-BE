@@ -12,26 +12,9 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
-    return queryInterface.bulkInsert('Enrollments', [
-      {
-        user_id: 37,
-        class_id: 1,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-      {
-        user_id: 38,
-        class_id: 1,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-      {
-        user_id: 39,
-        class_id: 2,
-        createdAt: new Date(),
-        updatedAt: new Date(),
-      },
-    ]);
+    // return queryInterface.bulkInsert('Enrollments', [
+      
+    // ]);
   },
 
   async down (queryInterface, Sequelize) {

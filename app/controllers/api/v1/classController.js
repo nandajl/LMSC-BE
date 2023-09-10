@@ -89,5 +89,20 @@ module.exports = {
             message: error
         })
     }
+  },
+
+  async handleFindClassCourseId(req, res){
+    try {
+        const course_id = req.body.course_id;
+        const classes = await classServices.findClassCourseId(course_id);
+        res.status(201).json({
+            message: "OK",
+            data: classes
+        })
+    } catch (error) {
+        res.status(400).json({
+            message: error
+        })
+    }
   }
 }

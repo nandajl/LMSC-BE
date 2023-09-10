@@ -21,12 +21,20 @@ module.exports = {
     return classRepository.getClass(id);
   },
 
-  findClass(condition){
-    const data = classRepository.findClass({dosen_id_1: condition});
-    if (!data) {
-      return classRepository.findClass({dosen_id_2: condition});
+  async findClass(condition){
+    try {
+      const data = await classRepository.findClass({dosen_id_1: condition});
+      if (data.length === 0) {
+        return classRepository.findClass({dosen_id_2: condition});
+      }
+      return data;
+    } catch (error) {
+      return error
     }
-    return data;
     
+  },
+
+  findClassCourseId(condition){
+    return classRepository.findClassCourseId({course_id: condition});
   }
 }
